@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Jurnal Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-in">
+      <div class="hero-top">
+        <div class="brand">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14"/><rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)"/></svg>
+          </span>
+          <div>
+            <h1>Jurnal Generator</h1>
+            <p>Isi jurnal Kejar.id sekaligus, tinggal tempel.</p>
+          </div>
+        </div>
+        <button type="button" id="resetBtn" class="reset">Reset</button>
+      </div>
+
+      <div class="range">
+        <label class="dt"><span>Mulai</span><input id="startDate" type="date"></label>
+        <label class="dt"><span>Akhir</span><input id="endDate" type="date"></label>
+        <div class="count" aria-live="polite"><strong id="dayCount">0</strong><span>hari</span></div>
+      </div>
+      <p id="dateWarn" class="warn" role="alert" hidden>Tanggal Mulai harus sebelum atau sama dengan Akhir.</p>
+
+      <div class="modebox">
+        <span class="modecap" id="modeCap">Jalankan</span>
+        <div class="modes" role="radiogroup" aria-labelledby="modeCap">
+          <button type="button" role="radio" data-mode="daily">Harian</button>
+          <button type="button" role="radio" data-mode="weekly">Mingguan</button>
+          <button type="button" role="radio" data-mode="both">Keduanya</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Bagian jurnal">
+    <button type="button" class="tab" role="tab" data-tab="harian">Harian</button>
+    <button type="button" class="tab" role="tab" data-tab="mingguan">Mingguan</button>
+    <button type="button" class="tab" role="tab" data-tab="script">Script</button>
+  </nav>
+
+  <main id="view" class="main"></main>
+
+  <div id="dock" class="dock">
+    <div class="dock-in">
+      <p class="dock-text" id="dockText"></p>
+      <button type="button" id="copyTop" class="primary">Salin script</button>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="habits.js"></script>
+  <script src="generator.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
